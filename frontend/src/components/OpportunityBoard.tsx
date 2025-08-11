@@ -482,7 +482,7 @@ const OpportunityCard: React.FC<OpportunityCardProps> = ({
   isSelected,
   onToggleSelection,
 }) => {
-  const { opp, match_score, win_probability, category } = opportunity;
+  const { opportunity: opp, match_score, win_probability, category } = opportunity;
 
   const getCategoryColor = (category: OpportunityCategory) => {
     switch (category) {

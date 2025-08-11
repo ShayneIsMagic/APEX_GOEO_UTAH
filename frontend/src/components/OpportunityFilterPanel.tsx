@@ -354,8 +354,8 @@ const OpportunityFilterPanel: React.FC<OpportunityFilterPanelProps> = ({
                   <Slider
                     value={[filters.estimatedValueRange.min, filters.estimatedValueRange.max]}
                     onChange={(_, value) => handleFilterChange('estimatedValueRange', { 
-                      min: value[0], 
-                      max: value[1] 
+                      min: Array.isArray(value) ? value[0] : value, 
+                      max: Array.isArray(value) ? value[1] : value 
                     })}
                     valueLabelDisplay="auto"
                     min={0}
@@ -458,8 +458,8 @@ const OpportunityFilterPanel: React.FC<OpportunityFilterPanelProps> = ({
                   <Slider
                     value={[filters.matchScoreRange.min, filters.matchScoreRange.max]}
                     onChange={(_, value) => handleFilterChange('matchScoreRange', { 
-                      min: value[0], 
-                      max: value[1] 
+                      min: Array.isArray(value) ? value[0] : value, 
+                      max: Array.isArray(value) ? value[1] : value 
                     })}
                     min={0}
                     max={100}
@@ -478,8 +478,8 @@ const OpportunityFilterPanel: React.FC<OpportunityFilterPanelProps> = ({
                   <Slider
                     value={[filters.winProbabilityRange.min, filters.winProbabilityRange.max]}
                     onChange={(_, value) => handleFilterChange('winProbabilityRange', { 
-                      min: value[0], 
-                      max: value[1] 
+                      min: Array.isArray(value) ? value[0] : value, 
+                      max: Array.isArray(value) ? value[1] : value 
                     })}
                     min={0}
                     max={100}
@@ -514,7 +514,7 @@ const OpportunityFilterPanel: React.FC<OpportunityFilterPanelProps> = ({
                         onClick={() => loadSavedFilter(filter)}
                         variant="outlined"
                         size="small"
-                        fullWidth
+                        sx={{ width: '100%' }}
                       />
                     </Grid>
                   ))}
