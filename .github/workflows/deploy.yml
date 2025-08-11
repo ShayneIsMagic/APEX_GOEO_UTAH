@@ -31,10 +31,15 @@ jobs:
         cd frontend
         npm run build
         
+    - name: Copy additional files
+      run: |
+        cd frontend/build
+        cp ../../b2b_networking_hub.html .
+        cp ../../APEX_BLACK_300dpi.png .
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./frontend/build
-        cname: utah-government-contracting-hub.github.io 
+        publish_dir: ./frontend/build 
